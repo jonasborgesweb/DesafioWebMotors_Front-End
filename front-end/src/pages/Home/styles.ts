@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
-export const Container = styled.div``;
+export const Container = styled.div`
+  margin-top: 30px;
+`;
 
 export const Center = styled.div`
   max-width: 1336px;
@@ -8,7 +10,9 @@ export const Center = styled.div`
   margin: 0 auto;
 `;
 
-export const Content = styled.div``;
+export const Content = styled.div`
+  margin: 50px 0;
+`;
 
 export const Filter = styled.section`
   max-width: 933px;
@@ -17,14 +21,25 @@ export const Filter = styled.section`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 20px;
+
+  padding: 20px 20px 0;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
 `;
 
 export const GroupInfo = styled.div``;
 
 export const Row = styled.div`
+  margin-bottom: 20px;
+`;
+
+export const RowDivider = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 20px;
+
+  margin-bottom: 20px;
 `;
 
 export const Select = styled.select`
@@ -40,12 +55,34 @@ export const ContainerList = styled.section`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 50px;
+
+  @media screen and (max-width: 1280px) {
+    grid-gap: 30px;
+  }
+
+  @media screen and (max-width: 1000px) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 30px;
+  }
+
+  @media screen and (max-width: 768px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 `;
 
 export const Card = styled.div`
   box-shadow: 0 3px 9px rgba(0, 0, 0, 0.3);
   border-radius: 8px;
   transition: 0.3s ease;
+  min-height: 420px;
+
+  display: flex;
+  flex-direction: column;
+
+  @media screen and (max-width: 768px) {
+    max-width: 412px;
+    margin: auto;
+  }
 
   &:hover {
     transform: translateY(-5px);
@@ -66,6 +103,7 @@ export const Card = styled.div`
     }
   }
   div.content {
+    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

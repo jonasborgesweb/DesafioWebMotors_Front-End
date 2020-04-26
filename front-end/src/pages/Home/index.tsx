@@ -3,6 +3,9 @@ import React, { useEffect, useState, useCallback } from 'react';
 // Import Api
 import Api from '../../services/Api';
 
+// Import Components
+import Header from '../../components/Header';
+
 // Import CSS
 import {
   Container,
@@ -11,6 +14,7 @@ import {
   Content,
   GroupInfo,
   Row,
+  RowDivider,
   Select,
   ContainerList,
   Card,
@@ -84,15 +88,18 @@ const Home: React.FC = () => {
   }, []);
   return (
     <>
+      <Header />
       <Container>
         <Filter>
           <GroupInfo>
-            <Select>
-              <option selected disabled>
-                Localização
-              </option>
-            </Select>
             <Row>
+              <Select>
+                <option selected disabled>
+                  Localização
+                </option>
+              </Select>
+            </Row>
+            <RowDivider>
               <Select>
                 <option selected disabled>
                   Ano Desejado
@@ -103,10 +110,10 @@ const Home: React.FC = () => {
                   Faixa de Preço
                 </option>
               </Select>
-            </Row>
+            </RowDivider>
           </GroupInfo>
           <GroupInfo>
-            <Row>
+            <RowDivider>
               <Select onChange={handleMake}>
                 <option selected disabled>
                   Marca: Todas
@@ -127,17 +134,19 @@ const Home: React.FC = () => {
                   </option>
                 ))}
               </Select>
-            </Row>
-            <Select>
-              <option selected disabled>
-                Versão: Todas
-              </option>
-              {version.map((item) => (
-                <option key={item.ID} value={item.ID}>
-                  {item.Name}
+            </RowDivider>
+            <Row>
+              <Select>
+                <option selected disabled>
+                  Versão: Todas
                 </option>
-              ))}
-            </Select>
+                {version.map((item) => (
+                  <option key={item.ID} value={item.ID}>
+                    {item.Name}
+                  </option>
+                ))}
+              </Select>
+            </Row>
           </GroupInfo>
         </Filter>
         <Content>
